@@ -23,7 +23,7 @@ export default function Home() {
 
   const handleStep1 = () => {
     if (!senderPhone || !targetPhone) {
-      setError('Dono phone numbers daalo!');
+      setError('Please Enter Both phone numbers!');
       return;
     }
     setError('');
@@ -32,7 +32,7 @@ export default function Home() {
 
   const handleStep2 = () => {
     if (!selectedDate || !selectedTime) {
-      setError('Date aur time dono select karo!');
+      setError('Please select both date and time!');
       return;
     }
     setError('');
@@ -46,7 +46,7 @@ export default function Home() {
 
   const handleSubmit = async () => {
     if (!message) {
-      setError('Message likho!');
+      setError('Please enter a message!');
       return;
     }
     setLoading(true);
@@ -73,10 +73,10 @@ export default function Home() {
         setSuccess(true);
         setStep(5);
       } else {
-        setError(data.error || 'Kuch gadbad ho gayi!');
+        setError(data.error || 'Something went wrong!');
       }
     } catch (err) {
-      setError('Server se connection nahi ho pa raha!');
+      setError('Failed to connect to the server!');
     } finally {
       setLoading(false);
     }
